@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Home Page</title>
-    </head>
-    <body>
-        <div class="header">
-        <h1>FitLife</h1>
+<head>
+    <meta charset="utf-8">
+    <title>FitLife - Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header class="header-bar">
+        <div class="logo">
+            <img src="https://via.placeholder.com/100x50" alt="FitLife Logo">
         </div>
-        <div class="header-right">
-        <a href="#home"> Home </a>
-        <a href="#profile"> Profile </a>
-        <a href="#myworkouts"> My Workouts </a>
-        <a href="#allworkouts"> All Workouts </a>
-        <a href="#nutrition"> Nutrition </a>
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#myworkouts">My Workouts</a></li>
+                <li><a href="#allworkouts">All Workouts</a></li>
+                <li><a href="#nutrition">Nutrition</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <a href="#signin" class="button">Sign In</a>
+            <a href="#getstarted" class="button-primary">Get Started</a>
         </div>
-    </body>
+    </header>
 
-
-
-
-
-
-
-
-
-
-
-
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Where Fitness Happens</h1>
+            <p>Your journey to a healthier life starts here.</p>
+            <a href="#getstarted" class="button-primary">Get Started</a>
+        </div>
+        <img src="https://via.placeholder.com/800x400" alt="Fitness Hero Image" class="hero-image">
+    </section>
+</body>
 </html>
