@@ -106,3 +106,46 @@ body {
     max-width: 40%;
     height: auto;
 }
+
+/* All Workouts Section */
+.workouts {
+    padding: 50px 30px;
+    background-color: white;
+}
+
+.workouts h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.workout-section {
+    margin-bottom: 40px;
+}
+
+.workout-section h3 {
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.workout-section p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.workout-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.workout-gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
