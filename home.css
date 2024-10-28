@@ -19,7 +19,7 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 150px;
 }
 
 .nav-bar {
@@ -106,6 +106,11 @@ body {
     max-width: 40%;
     height: auto;
 }
+.footer{
+    text-align: center;
+    background-color: white;
+}
+
 
 /* All Workouts Section */
 .workouts {
@@ -148,4 +153,51 @@ body {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Nutrition Section */
+.macro{
+    padding: 50px 30px;
+    background-color: white;
+}
+.macro h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+}
+.nutr-info{
+    text-align: center;
+}
+.nutr-info label{
+    display:block;
+    margin: 5px;
+    font-size: 1.2em;
+    
+}
+.nutr-info button{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 15px;
+    transition: background-color 0.3s;
+}
+.nutr-info button:hover{
+    background-color: #0056b3;
+}
+.nutr-body{
+    background-color: white;
+}
+.total-macro{
+    padding: 50px 30px;
+    background-color: white;
+    text-align: center;
+}
+.total-macro p{
+    margin: 20px;
+    text-align: left;
+    font-size: 1.2em;
 }

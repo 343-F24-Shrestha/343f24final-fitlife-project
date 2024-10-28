@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FitLife - Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header class="header-bar">
+        <div class="logo">
+            <img src="imgs/FitLife.png" alt="FitLife Logo">
+        </div>
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="myworkouts.html">My Workouts</a></li>
+                <li><a href="allworkouts.html">All Workouts</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <a href="#signin" class="button">Sign In</a>
+            <a href="#getstarted" class="button-primary">Get Started</a>
+        </div>
+    </header>
+    <section class="macro">
+    <h2>Enter Nutrition Information</h2>
+    <form class="nutr-info">
+        <label for="protein">Protein:</label><br>
+        <input type="text" id="protein" name="protein"><br>
+        <label for="carbs">Carbohydrates:</label><br>
+        <input type="text" id="carbs" name="carbs"><br>
+        <label for="fats">Fat:</label><br>
+        <input type="text" id="fats" name="fats"><br>
+        <label for="cals">Calories:</label><br>
+        <input type="text" id="cals" name="cals"><br>
+        <button type="submit">Add Food</button>
+    </form>
+    </section>
+    <section class="total-macro">
+        <h1> Total Macronutrient Intake</h1>
+        <p> Protein: </p>
+        <p> Carbohydrates: </p>
+        <p> Fats: </p>
+        <p> Calories: </p>
+    </section>
+    <div class="footer">
+        <p>&copy; 2024 FitLife. All rights reserved.</p>
+    </div>
+</body>
+</html>
