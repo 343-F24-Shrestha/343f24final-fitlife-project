@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>FitLife - My Workouts</title>
+        <link rel="stylesheet" href="myworkouts.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <header class="header-bar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/100x50" alt="FitLife Logo">
+            </div>
+            <nav class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#profile">Profile</a></li>
+                    <li><a href="myworkouts.html">My Workouts</a></li>
+                    <li><a href="index.html#allworkouts">All Workouts</a></li>
+                    <li><a href="index.html#nutrition">Nutrition</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="#signin" class="button">Sign In</a>
+                <a href="#getstarted" class="button-primary">Get Started</a>
+            </div>
+        </header>
+
+
+        <!-- Workout Form-->
+         <div class="container">
+
+
+            <div class="form-container">
+
+                <form action="#" method="post">
+                    <h3>Fill out the following form</h3>
+                    <!-- Number of Exercises -->
+                    <label for="numExercises">Number of Exercises:</label>
+                    <select id="numExercises" name="numExercises" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <br><br>
+
+                    <!-- Muscle to Work -->
+                    <label for="muscleGroup">Muscle Group:</label>
+                    <select id="muscleGroup" name="muscleGroup" required>
+                        <option value="chest">Chest</option>
+                        <option value="back">Back</option>
+                        <option value="legs">Legs</option>
+                        <option value="arms">Arms</option>
+                        <option value="shoulders">Shoulders</option>
+                        <option value="core">Core</option>
+                    </select>
+                    <br><br>
+
+                    <!-- Experience Level -->
+                    <label for="experienceLevel">Experience Level:</label>
+                    <select id="experienceLevel" name="experienceLevel" required>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                    <br><br>
+
+                    <!-- Available Equipment -->
+                    <label for="equipment">Available Equipment:</label>
+                    <select id="equipment" name="equipment[]" multiple size="5">
+                        <option value="dumbbells">Dumbbells</option>
+                        <option value="barbell">Barbell</option>
+                        <option value="cables">Cables</option>
+                        <option value="machines">Machines</option>
+                    </select>
+                    <br><br>
+
+                    <button type="submit" id="submitButton">Submit</button>
+                </form>
+
+            </div>
+
+            <div class="current-exercises">
+
+                <div class="exercise1">
+                    <h3> Exercise 1</h3>
+               </div>
+
+               <div class="exercise2">
+                    <h3>Exercise 2</h3>
+               </div>
+
+               <div class="exercise3">
+                    <h3>Exercise 2</h3>
+               </div>
+
+               <div class="exercise4">
+                    <h3>Exercise 2</h3>
+               </div>
+
+
+            </div>
+
+            <div class="current-workout">
+                <div class="scrollable-grid">
+                    <div class="column">Exercise 1</div>
+                    <div class="column">Exercise 2</div>
+                    <div class="column">Exercise 3</div>
+                    <div class="column">Exercise 4</div>
+                    <div class="column">Exercise 5</div>
+                    <div class="column">Exercise 6</div>
+                    <div class="column">Exercise 7</div>
+                    <div class="column">Exercise 8</div>
+                    <div class="column">Exercise 9</div>
+                    <div class="column">Exercise 10</div>
+
+                </div>
+
+            </div>
+
+         </div>
+
+
+    </body>
+
+</html>
