@@ -50,12 +50,23 @@
                     <!-- Muscle to Work -->
                     <label for="muscleGroup">Muscle Group:</label>
                     <select id="muscleGroup" name="muscleGroup" required>
+                        <option value="abdominals">Abdominals</option>
+                        <option value="abductors">Abductors</option>
+                        <option value="adductors">Adductors</option>
+                        <option value="biceps">Biceps</option>
+                        <option value="calves">Calves</option>
                         <option value="chest">Chest</option>
-                        <option value="back">Back</option>
-                        <option value="legs">Legs</option>
-                        <option value="arms">Arms</option>
-                        <option value="shoulders">Shoulders</option>
-                        <option value="core">Core</option>
+                        <option value="forearms">Forearms</option>
+                        <option value="glutes">Glutes</option>
+                        <option value="hamstrings">Hamstrings</option>
+                        <option value="lats">Lats</option>
+                        <option value="lower_back">Lower Back</option>
+                        <option value="middle_back">Middle Back</option>
+                        <option value="neck">Neck</option>
+                        <option value="quadriceps">Quadriceps</option>
+                        <option value="traps">Traps</option>
+                        <option value="triceps">Triceps</option>
+                        <option value="cardio">Cardio</option>
                     </select>
                     <br><br>
 
@@ -83,7 +94,7 @@
 
             </div>
 
-            <div class="current-exercises">
+            <div class="current-exercises" id="currentExercises">
 
                 <div class="exercise1">
                     <h3> Exercise 1</h3>
@@ -104,25 +115,118 @@
 
             </div>
 
-            <div class="current-workout">
-                <div class="scrollable-grid">
-                    <div class="column">Exercise 1</div>
-                    <div class="column">Exercise 2</div>
-                    <div class="column">Exercise 3</div>
-                    <div class="column">Exercise 4</div>
-                    <div class="column">Exercise 5</div>
-                    <div class="column">Exercise 6</div>
-                    <div class="column">Exercise 7</div>
-                    <div class="column">Exercise 8</div>
-                    <div class="column">Exercise 9</div>
-                    <div class="column">Exercise 10</div>
 
+            
+
+            <div class="current-workout" id="currentWorkout">
+                <h3>Workout Plan:</h3>
+                <div class="scrollable-grid" id="workoutGrid">
+                    <!--Dynamically append here-->
                 </div>
-
+                <button id="clearWorkout" class="button">Clear Workout</button>
+                <button id="downloadWorkout" class="button-primary">Download Workout</button>
             </div>
+            
 
          </div>
+    <script>
+        // Initialize an array to store the cumulative workout
+        let cumulativeWorkout = [];
 
+        // Event listener for the form submission
+        document.querySelector('form').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent form submission from reloading the page
+
+        // Gather user inputs
+        const numExercises = parseInt(document.getElementById('numExercises').value, 10);
+        const muscleGroup = document.getElementById('muscleGroup').value;
+        const experienceLevel = document.getElementById('experienceLevel').value;
+
+        // Fetch the exercises from the API
+        const apiUrl = `https://api.api-ninjas.com/v1/exercises?muscle=${muscleGroup}&difficulty=${experienceLevel}`;
+        try {
+            const response = await fetch(apiUrl, {
+                headers: { 'X-Api-Key': 'GDIGiVg2tuKfwRJkcdsd8w==fSfUFBbfUTOJTfyc' },
+            });
+
+            if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+            const exercises = await response.json();
+
+            if (exercises.length === 0) {
+                alert('No exercises found for this muscle group and experience level.');
+                return;
+            }
+
+            // Filter and limit exercises based on the user's input
+            const selectedExercises = exercises.slice(0, numExercises);
+
+            // Populate the "current exercises" section
+            const currentExercisesDiv = document.getElementById('currentExercises');
+            currentExercisesDiv.innerHTML = `<h3>Selected Exercises:</h3>`; // Clear previous content
+            selectedExercises.forEach((exercise, index) => {
+                const exerciseDiv = document.createElement('div');
+                exerciseDiv.className = `exercise${index + 1}`;
+                exerciseDiv.innerHTML = `
+                    <h4>${exercise.name}</h4>
+                    <p>${exercise.instructions}</p>
+                `;
+                currentExercisesDiv.appendChild(exerciseDiv);
+            });
+
+            // Add exercises to the cumulative workout and update the workout grid
+            const workoutGrid = document.getElementById('workoutGrid');
+            selectedExercises.forEach((exercise) => {
+                // Check if exercise is already in cumulativeWorkout
+                const isDuplicate = cumulativeWorkout.some((e) => e.name === exercise.name);
+                if (!isDuplicate) {
+                    cumulativeWorkout.push(exercise);
+
+                    // Add to the workout grid
+                    const workoutColumn = document.createElement('div');
+                    workoutColumn.className = 'column';
+                    workoutColumn.textContent = exercise.name;
+                    workoutGrid.appendChild(workoutColumn);
+                }
+            });
+
+            } catch (error) {
+                console.error('Error fetching exercises:', error);
+                alert('Failed to fetch exercises. Please try again later.');
+            }
+        });
+
+            // Event listener for the Clear button
+            document.getElementById('clearWorkout').addEventListener('click', () => {
+                cumulativeWorkout = []; // Reset the cumulative workout
+                document.getElementById('workoutGrid').innerHTML = ''; // Clear the workout grid
+                alert('Workout cleared!');
+            });
+
+            // Event listener for the Download Workout button
+            document.getElementById('downloadWorkout').addEventListener('click', () => {
+                if (cumulativeWorkout.length === 0) {
+                    alert('No workout to download!');
+                    return;
+                }
+
+                // Format the workout into a text file
+                const workoutText = cumulativeWorkout.map((exercise, index) =>
+                    `${index + 1}. ${exercise.name}\nInstructions: ${exercise.instructions}\n`
+                ).join('\n');
+
+                // Create a blob and trigger the download
+                const blob = new Blob([workoutText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'workout_plan.txt';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+
+
+
+    </script>
 
     </body>
 
