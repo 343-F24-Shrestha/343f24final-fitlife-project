@@ -20,34 +20,79 @@
             </ul>
         </nav>
         <div class="header-buttons">
-            <a href="#signin" class="button">Sign In</a>
-            <a href="#getstarted" class="button-primary">Get Started</a>
+            <a href="allworkouts.html" class="button-primary">Get Started</a>
         </div>
     </header>
-    <section class="macro">
-    <h2>Enter Nutrition Information</h2>
-    <form class="nutr-info">
-        <label for="protein">Protein:</label><br>
-        <input type="text" id="protein" name="protein"><br>
-        <label for="carbs">Carbohydrates:</label><br>
-        <input type="text" id="carbs" name="carbs"><br>
-        <label for="fats">Fat:</label><br>
-        <input type="text" id="fats" name="fats"><br>
-        <label for="cals">Calories:</label><br>
-        <input type="text" id="cals" name="cals"><br>
-        <button type="submit">Add Food</button>
-    </form>
-    </section>
-    <section class="total-macro">
-        <h1> Total Macronutrient Intake</h1>
-        <p> Protein: </p>
-        <p> Carbohydrates: </p>
-        <p> Fats: </p>
-        <p> Calories: </p>
-        <button type="reset">Reset Nutrition Log</button>
-    </section>
-    <div class="footer">
+
+    <main class="grid-container">
+        <!-- BMI Calculator Section -->
+        <section class="bmi-calculator">
+            <h2>BMI Calculator</h2>
+            <form id="bmi-form">
+                <label for="height-ft">Height (ft):</label>
+                <input type="number" id="height-ft" name="height-ft" required>
+                <label for="height-in">Height (in):</label>
+                <input type="number" id="height-in" name="height-in" required>
+                <label for="weight-lbs">Weight (lbs):</label>
+                <input type="number" id="weight-lbs" name="weight-lbs" required>
+                <button type="submit">Calculate BMI</button>
+            </form>
+            <div id="bmi-output" class="bmi-output hidden">
+                <p id="bmi-result"></p>
+            </div>
+        </section>
+        
+        <script>
+            document.getElementById('bmi-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Get input values
+            const heightFt = parseFloat(document.getElementById('height-ft').value);
+            const heightIn = parseFloat(document.getElementById('height-in').value);
+            const weightLbs = parseFloat(document.getElementById('weight-lbs').value);
+
+            // Convert height to total inches
+            const totalHeightIn = (heightFt * 12) + heightIn;
+
+            // BMI formula: (weight in pounds / height in inches^2) * 703
+            const bmi = (weightLbs / (totalHeightIn ** 2)) * 703;
+
+            // Display BMI result
+            const bmiResult = document.getElementById('bmi-result');
+            const bmiOutput = document.getElementById('bmi-output');
+            const bmiImage = document.getElementById('bmi-image');
+
+            bmiOutput.innerHTML = `Your BMI is ${bmi.toFixed(2)}.`;
+            bmiImage.src = "imgs/bmi.jpg"; // Update the file path if needed
+            bmiImage.classList.remove('hidden');
+
+            bmiOutput.classList.remove('hidden');
+        });
+        </script>
+
+        <!-- Nutrition Form Section -->
+        <section class="macro">
+            <h2>Enter Nutrition Information</h2>
+            <form class="nutr-info">
+                <label for="enter_food">Food:</label>
+                <input type="text" id="enter_food" name="enter_food">
+                <button type="submit">Add Food</button>
+            </form>
+        </section>
+
+        <!-- Total Macronutrients Section -->
+        <section class="total-macro">
+            <h1>Total Macronutrient Intake</h1>
+            <p>Protein: </p>
+            <p>Carbohydrates: </p>
+            <p>Fats: </p>
+            <p>Calories: </p>
+            <button type="reset">Reset Nutrition Log</button>
+        </section>
+    </main>
+
+    <footer class="footer">
         <p>&copy; 2024 FitLife. All rights reserved.</p>
-    </div>
+    </footer>
 </body>
 </html>

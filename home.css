@@ -212,3 +212,124 @@ body {
     margin: 15px;
     transition: background-color 0.3s;
 }
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* BMI Calculator */
+.bmi-calculator {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.bmi-calculator h2 {
+    margin-bottom: 20px;
+}
+
+.bmi-calculator form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1em;
+}
+
+.bmi-calculator form input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bmi-calculator button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bmi-calculator button:hover {
+    background-color: #0056b3;
+}
+
+/* Nutrition Form */
+.macro {
+    text-align: right;
+    grid-column: 2;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Total Macronutrient Intake */
+.total-macro {
+    text-align: right;
+    grid-column: 2;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-macro p {
+    margin: 10px 0;
+}
+
+.total-macro button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.total-macro button:hover {
+    background-color: #0056b3;
+}
+
+/* BMI Calculator Output */
+.bmi-output {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.bmi-image-section {
+    position: absolute; /* Allows manual positioning */
+    left: 50px;         /* Adjust this value for horizontal alignment */
+    top: 660px;
+}
+
+.bmi-image-section img {
+    max-width: 35%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
