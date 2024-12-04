@@ -108,7 +108,7 @@ body {
 
 
 
-.nutrition, .workout, .calendar {
+.nutrition, .workout, .quote {
     background-color: #ffffff;
     padding: 20px;
     margin: 20px;
@@ -122,6 +122,28 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+.quote {
+    text-align: center; /* Center the text content of the quote */
+}
+.quote-text {
+    font-style: italic; /* Make the quote text italic */
+    font-size: 1.2rem; /* Optional: Adjust font size to make the quote stand out */
+    margin-bottom: 20px; /* Optional: Add some space between the quote and the image */
+}
+
+.image-container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically (if you want to center it within a specific height) */
+    margin-top: 20px;
+}
+
+.inspiration-image {
+    width: 100%; /* Set image width to fill container */
+    max-width: 500px; /* Limit the width to 500px */
+    padding: 20px; /* Add padding around the image */
+    box-sizing: border-box; /* Include padding within the element's width */
 }
 
 /* Media query for screens less than 760px */
