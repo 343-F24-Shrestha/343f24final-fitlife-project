@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.total-macro p:nth-child(4)').textContent = `Calories: ${totalCalories.toFixed(2)}`;
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const savedWorkout = JSON.parse(localStorage.getItem("cumulativeWorkout")) || [];
 
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dateFormat: "Y-m-d",
     });
 });
-const quotes = [
+const quotes1 = [
     "The only way to do great work is to love what you do. - Steve Jobs",
     "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer",
     "Believe you can and you're halfway there. - Theodore Roosevelt",
@@ -54,8 +56,8 @@ const images = [
 
 // Function to get random quote
 function getRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    return quotes[randomIndex];
+    const randomIndex = Math.floor(Math.random() * quotes1.length);
+    return quotes1[randomIndex];
 }
 
 // Function to get random image
