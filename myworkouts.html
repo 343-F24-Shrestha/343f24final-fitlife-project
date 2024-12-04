@@ -116,7 +116,6 @@
             <div class="current-workout" id="currentWorkout">
                 <h3>Workout Plan:</h3>
                 <div class="scrollable-grid" id="workoutGrid">
-                    <!--Dynamically append here-->
                 </div>
                 <button type="button" id="clearWorkout" class="button">Clear Workout</button>
                 <button type="button" id="downloadWorkout" class="button-primary">Download Workout</button>
@@ -150,12 +149,11 @@
                 return;
             }
 
-            // Filter and limit exercises based on the user's input
             const selectedExercises = exercises.slice(0, numExercises);
 
             // Populate the "current exercises" section
             const currentExercisesDiv = document.getElementById('currentExercises');
-            currentExercisesDiv.innerHTML = `<h3>Selected Exercises:</h3>`; // Clear previous content
+            currentExercisesDiv.innerHTML = `<h3>Selected Exercises:</h3>`;
             selectedExercises.forEach((exercise, index) => {
                 const exerciseDiv = document.createElement('div');
                 exerciseDiv.className = `exercise${index + 1}`;
