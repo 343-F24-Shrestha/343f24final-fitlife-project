@@ -44,12 +44,12 @@ const quotes = [
 
 // Array of inspirational images
 const images = [
-    "imgs/images-4.jpeg",
-    "imgs/images-5.jpeg",
-    "imgs/images-6.jpeg",
-    "imgs/images-7.jpeg",
-    "imgs/images-8.jpeg",
-    "imgs/images-9.jpeg"
+    "images/images-4.jpeg",
+    "images/images-5.jpeg",
+    "images/images-6.jpeg",
+    "images/images-7.jpeg",
+    "images/images-8.jpeg",
+    "images/images-9.jpeg"
 ];
 
 // Function to get random quote
