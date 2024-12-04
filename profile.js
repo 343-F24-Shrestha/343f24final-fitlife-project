@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve workouts from localStorage
     const savedWorkout = JSON.parse(localStorage.getItem("cumulativeWorkout")) || [];
 
     // Display saved workouts in the Today's Workout section
@@ -24,4 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         workoutList.innerHTML = "<li>No workouts added yet.</li>";
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#calendar", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+    });
 });
