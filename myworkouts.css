@@ -150,6 +150,9 @@ form {
 label {
     align-self: center;
     color: #555555;
+    text-align: left;
+    text-decoration: bold;
+    font-size: small;
 }
 
 select {
