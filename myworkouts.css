@@ -89,17 +89,13 @@ body {
     min-height: 30vh;
 }
 
-.form-container, .current-exercises, .current-workout {
+.current-exercises, .current-workout {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-container {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
 
 .current-exercises {
     grid-column: 2 / 3;
@@ -119,7 +115,7 @@ body {
         gap: 20px;
     }
 
-    .form-container, .top-right, .bottom {
+    .top-right, .bottom {
         grid-column: auto;
         grid-row: 1 / 2;
     }
@@ -127,56 +123,118 @@ body {
 
 
 /* Workout Form */
-
-form {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 15px;
-    max-width: 500px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.form-container {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px; /* Add space around the form */
+    margin: 20px auto; /* Center form on the page */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Clean, modern font */
+}
+  
+.form-container h3 {
+    text-align: center; /* Center the header */
+    color: #333; /* Dark text color */
+    font-size: 1.5em; /* Slightly larger font */
+    margin-bottom: 20px; /* Add spacing below the header */
+}
+  
+.form-container label {
+    display: block; /* Ensure labels are on separate lines */
+    margin-bottom: 8px; /* Add spacing below labels */
+    color: #555; /* Slightly muted text color */
+    font-size: 1em; /* Regular font size */
+}
+  
+.form-container select {
+    width: 100%; /* Make dropdowns full width */
+    padding: 10px; /* Add padding for clickable area */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    font-size: 1em; /* Regular font size */
+    margin-bottom: 15px; /* Add space below inputs */
+}
+  
+.form-container button {
+    display: block; /* Center the button */
+    width: 100%; /* Full-width button */
+    padding: 10px 15px; /* Add padding */
+    background-color: #007BFF; /* Primary blue color */
+    color: #fff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1em; /* Regular font size */
+    cursor: pointer; /* Show pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+  
+.form-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+  
+.form-container button:active {
+    background-color: #004085; /* Even darker blue on click */
 }
 
-.form-container h3 {
-    grid-column: span 2;
-    font-size: 1.5em;
-    text-align: center;
-    color: #333333;
+
+  /* Form Styling */
+.form-container form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 15px; /* Add consistent spacing between form elements */
+}
+  
+  /* Form Headings */
+.form-container form h3 {
+    font-weight: bold; 
+    font-size: 1.5em; 
     margin-bottom: 20px;
 }
-
-label {
-    align-self: center;
-    color: #555555;
-    text-align: left;
-    text-decoration: bold;
-    font-size: small;
-}
-
-select {
-    padding: 8px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+  
+  /* Form Labels */
+.form-container form label {
     font-size: 1em;
+    color: #444; 
 }
-
-input[type="submit"] {
-    grid-column: span 2;
-    padding: 10px;
-    font-size: 1em;
-    color: #ffffff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  
+  /* Form Inputs and Dropdowns */
+.form-container form select {
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 1em; 
+    background-color: #fff; 
+    width: 100%; 
+    transition: border-color 0.3s ease; 
 }
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
+  
+.form-container form select:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove default focus outline */
 }
+  
+  /* Submit Button */
+.form-container form button {
+    padding: 10px; 
+    font-size: 1em; 
+    font-weight: bold; 
+    color: #fff; 
+    background-color: #007BFF; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+  
+  .form-container form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .form-container form button:active {
+    background-color: #004085; /* Even darker blue on click */
+  }
 
 /* Current Exercises */
 .current-exercises {

@@ -87,8 +87,45 @@ body {
     background-color: #f4f4f4;
 }
 
+.other-websites {
+    flex: 0 0 50%;
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px; /* Inner spacing */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 400px; /* Limit the width */
+    margin: 20px auto; /* Center horizontally with top/bottom margin */
+    font-family: Arial, sans-serif; /* Clean, readable font */
+  }
+  
+  .other-websites h3 {
+    color: #007BFF; /* Primary blue color for the header */
+    text-align: center; /* Center the header text */
+    font-size: 1.5em; /* Slightly larger font size */
+    margin-bottom: 15px; /* Spacing below the header */
+  }
+  
+  .website-link {
+    display: block; /* Make links appear as separate rows */
+    color: #28A745; /* Green color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.1em; /* Slightly larger text for links */
+    padding: 10px 15px; /* Add padding around links */
+    margin: 5px 0; /* Add space between links */
+    border-radius: 4px; /* Rounded corners for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .website-link:hover {
+    background-color: #28A745; /* Green background on hover */
+    color: #fff; /* White text on hover */
+  }
+
+
 .hero-content {
-    max-width: 50%;
+    flex: 0 0 50;
+
 }
 
 .hero h1 {
@@ -102,14 +139,31 @@ body {
     color: #666;
 }
 
-.hero-image {
+/* .hero-image {
     max-width: 40%;
     height: auto;
-}
+} */
 .footer{
     text-align: center;
     background-color: white;
 }
+
+
+.pictures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    width: 80%; /* Fill 80% of the width */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Ensuring all images are responsive */
+  .pictures img {
+    width: 100%; /* Images take the full width of their grid cell */
+    height: 400px; /* Maintain the original aspect ratio */
+    object-fit: cover; /* Adjust how images fit if needed */
+    border: 2px solid #333; /* Optional: adds a border */
+  }
 
 
 /* All Workouts Section */
