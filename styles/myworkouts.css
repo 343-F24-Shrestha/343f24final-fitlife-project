@@ -115,9 +115,19 @@ body {
         gap: 20px;
     }
 
-    .top-right, .bottom {
-        grid-column: auto;
+    .form-container {
+        grid-column: 1 / 2;
         grid-row: 1 / 2;
+    }
+
+    .current-exercises {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .current-workout {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
     }
 }
 
