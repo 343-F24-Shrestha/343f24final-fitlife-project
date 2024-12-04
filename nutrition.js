@@ -4,6 +4,14 @@ let totalCarbs = 0;
 let totalFats = 0;
 let totalCalories = 0;
 
+function updateLocalStorage() {
+    localStorage.setItem('totalProtein', totalProtein.toFixed(2));
+    localStorage.setItem('totalCarbs', totalCarbs.toFixed(2));
+    localStorage.setItem('totalFats', totalFats.toFixed(2));
+    localStorage.setItem('totalCalories', totalCalories.toFixed(2));
+}
+
+
 // Event listener for food input form
 document.getElementById("nutr-form").addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -62,6 +70,8 @@ document.getElementById("nutr-form").addEventListener("submit", async function (
         listItem.textContent = `${foodData.description}: Protein: ${protein}g, Carbs: ${carbs}g, Fats: ${fats}g, Calories: ${calories} kcal`;
         foodList.appendChild(listItem);
 
+        updateLocalStorage();
+
         // Clear the input field
         document.getElementById("enter_food").value = "";
     } catch (error) {
@@ -90,6 +100,11 @@ document.getElementById("reset-nutr").addEventListener("click", function () {
 
     const foodList = document.getElementById("food-list");
     foodList.innerHTML = ""; // Clear the food log
+
+    localStorage.removeItem("totalProtein");
+    localStorage.removeItem("totalCarbs");
+    localStorage.removeItem("totalFats");
+    localStorage.removeItem("totalCalories");
 });
 
 
