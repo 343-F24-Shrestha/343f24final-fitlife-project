@@ -39,6 +39,8 @@ body {
     font-size: 16px;
     padding: 5px 10px;
     transition: color 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 
 .nav-links a:hover {
