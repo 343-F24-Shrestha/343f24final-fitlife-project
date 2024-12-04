@@ -8,3 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.total-macro p:nth-child(3)').textContent = `Fats: ${totalFats.toFixed(2)} g`;
     document.querySelector('.total-macro p:nth-child(4)').textContent = `Calories: ${totalCalories.toFixed(2)}`;
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve workouts from localStorage
+    const savedWorkout = JSON.parse(localStorage.getItem("cumulativeWorkout")) || [];
+
+    // Display saved workouts in the Today's Workout section
+    const workoutList = document.getElementById("todaysWorkoutList");
+    if (savedWorkout.length > 0) {
+        savedWorkout.forEach((exercise) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${exercise.name}: ${exercise.instructions}`;
+            workoutList.appendChild(listItem);
+        });
+    } else {
+        workoutList.innerHTML = "<li>No workouts added yet.</li>";
+    }
+});

@@ -78,14 +78,7 @@
                     </select>
                     <br><br>
 
-                    <!-- Available Equipment -->
-                    <label for="equipment">Available Equipment:</label>
-                    <select id="equipment" name="equipment[]" multiple size="5">
-                        <option value="dumbbells">Dumbbells</option>
-                        <option value="barbell">Barbell</option>
-                        <option value="cables">Cables</option>
-                        <option value="machines">Machines</option>
-                    </select>
+
                     <br><br>
 
                     <button type="submit" id="submitButton" class="button-primary">Submit</button>
@@ -122,6 +115,11 @@
             </div>
          </div>
     <script>
+
+        function updateWorkoutStorage() 
+        {
+            localStorage.setItem("cumulativeWorkout", JSON.stringify(cumulativeWorkout));
+        }
         // Initialize an array to store the cumulative workout
         let cumulativeWorkout = [];
 
@@ -149,71 +147,73 @@
                 return;
             }
 
-            const selectedExercises = exercises.slice(0, numExercises);
+        const selectedExercises = exercises.slice(0, numExercises);
 
-            // Populate the "current exercises" section
-            const currentExercisesDiv = document.getElementById('currentExercises');
-            currentExercisesDiv.innerHTML = `<h3>Selected Exercises:</h3>`;
-            selectedExercises.forEach((exercise, index) => {
-                const exerciseDiv = document.createElement('div');
-                exerciseDiv.className = `exercise${index + 1}`;
-                exerciseDiv.innerHTML = `
-                    <h4>${exercise.name}</h4>
-                    <p>${exercise.instructions}</p>
-                `;
-                currentExercisesDiv.appendChild(exerciseDiv);
-            });
-
-            // Add exercises to the cumulative workout and update the workout grid
-            const workoutGrid = document.getElementById('workoutGrid');
-            selectedExercises.forEach((exercise) => {
-                // Check if exercise is already in cumulativeWorkout
-                const isDuplicate = cumulativeWorkout.some((e) => e.name === exercise.name);
-                if (!isDuplicate) {
-                    cumulativeWorkout.push(exercise);
-
-                    // Add to the workout grid
-                    const workoutColumn = document.createElement('div');
-                    workoutColumn.className = 'column';
-                    workoutColumn.textContent = exercise.name;
-                    workoutGrid.appendChild(workoutColumn);
-                }
-            });
-
-            } catch (error) {
-                console.error('Error fetching exercises:', error);
-                alert('Failed to fetch exercises. Please try again later.');
-            }
+        // Populate the "current exercises" section
+        const currentExercisesDiv = document.getElementById('currentExercises');
+        currentExercisesDiv.innerHTML = `<h3>Selected Exercises:</h3>`;
+        selectedExercises.forEach((exercise, index) => {
+            const exerciseDiv = document.createElement('div');
+            exerciseDiv.className = `exercise${index + 1}`;
+            exerciseDiv.innerHTML = `
+                <h4>${exercise.name}</h4>
+                <p>${exercise.instructions}</p>
+            `;
+            currentExercisesDiv.appendChild(exerciseDiv);
         });
 
-            // Event listener for the Clear button
-            document.getElementById('clearWorkout').addEventListener('click', () => {
-                cumulativeWorkout = []; // Reset the cumulative workout
-                document.getElementById('workoutGrid').innerHTML = ''; // Clear the workout grid
-                alert('Workout cleared!');
-            });
+        // Add exercises to the cumulative workout and update the workout grid
+        const workoutGrid = document.getElementById('workoutGrid');
+        selectedExercises.forEach((exercise) => {
+            // Check if exercise is already in cumulativeWorkout
+            const isDuplicate = cumulativeWorkout.some((e) => e.name === exercise.name);
+            if (!isDuplicate) {
+                cumulativeWorkout.push(exercise);
 
-            // Event listener for the Download Workout button
-            document.getElementById('downloadWorkout').addEventListener('click', () => {
-                if (cumulativeWorkout.length === 0) {
-                    alert('No workout to download!');
-                    return;
-                }
+                // Add to the workout grid
+                const workoutColumn = document.createElement('div');
+                workoutColumn.className = 'column';
+                workoutColumn.textContent = exercise.name;
+                workoutGrid.appendChild(workoutColumn);
+            }
+        });
+        updateWorkoutStorage();
 
-                // Format the workout into a text file
-                const workoutText = cumulativeWorkout.map((exercise, index) =>
-                    `${index + 1}. ${exercise.name}\nInstructions: ${exercise.instructions}\n`
-                ).join('\n');
+        } catch (error) {
+            console.error('Error fetching exercises:', error);
+            alert('Failed to fetch exercises. Please try again later.');
+        }
+    });
 
-                // Create a blob and trigger the download
-                const blob = new Blob([workoutText], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'workout_plan.txt';
-                a.click();
-                URL.revokeObjectURL(url);
-            });
+        // Event listener for the Clear button
+        document.getElementById('clearWorkout').addEventListener('click', () => {
+            cumulativeWorkout = []; // Reset the cumulative workout
+            document.getElementById('workoutGrid').innerHTML = ''; // Clear the workout grid
+            localStorage.removeItem("cumulativeWorkout");
+            alert('Workout cleared!');
+        });
+
+        // Event listener for the Download Workout button
+        document.getElementById('downloadWorkout').addEventListener('click', () => {
+            if (cumulativeWorkout.length === 0) {
+                alert('No workout to download!');
+                return;
+            }
+
+            // Format the workout into a text file
+            const workoutText = cumulativeWorkout.map((exercise, index) =>
+                `${index + 1}. ${exercise.name}\nInstructions: ${exercise.instructions}\n`
+            ).join('\n');
+
+            // Create a blob and trigger the download
+            const blob = new Blob([workoutText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'workout_plan.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
 
 
 
